@@ -39,8 +39,8 @@
  repeatDuration(CFTimeInterval)：重复执行时间，优先级大于repeatCount
  autoreverses(BOOL)：是否自动翻转动画，默认NO，为YES时执行效果为A->B->A
  fillMode(NSString)：动画的填充方式，如下
- <1>kCAFillModeForwards动画结束后回到准备状态
- <2>kCAFillModeBackwards动画结束后保持最后状态
+ <1>kCAFillModeForwards动画结束后保持最后状态
+ <2>kCAFillModeBackwards动画结束后回到准备状态
  <3>kCAFillModeBoth动画结束后回到准备状态，并保持最后状态
  <4>kCAFillModeRemoved执行完成移除动画(默认)
  
@@ -130,7 +130,33 @@
  【CAAnimationGroup】动画组
  animations(NSArray)：数组中接受CAAnimation元素，可以包含多个动画，让多个动画同时进行
  
+ 【CATransition】转场动画
+ type(CATransitionType)：系统提供了4种动画转场类型如下
+ <1>kCATransitionFade逐渐消失
+ <2>kCATransitionMoveIn移进来
+ <3>kCATransitionPush推进来
+ <4>kCATransitionReveal揭开
+ 系统私有的动画效果：
+ @"cube"立方体翻转效果
+ @"oglFlip"翻转效果
+ @"suckEffect"收缩效果，动画方向不可控
+ @"rippleEffect"水滴波纹效果，动画方向不可控
+ @"pageCurl"向上翻页效果
+ @"pageUnCurl"向下翻页效果
+ @"cameralIrisHollowOpen"摄像头打开效果，动画方向不可控
+ @"cameraIrisHollowClose"摄像头关闭效果，动画方向不可控
+ subtype(CATransitionSubtype)：系统提供了4个转场方向如下
+ <1>kCATransitionFromRight从右开始
+ <2>kCATransitionFromLeft从左开始
+ <3>kCATransitionFromTop从上开始
+ <4>kCATransitionFromBottom从下开始
+ startProgress(float)：开始进度，默认0.0.如果设置0.3，那么动画将从动画的0.3的部分开始
+ endProgress(float)：结束进度，默认1.0.如果设置0.6，那么动画将从动画的0.6部分以后就会结束
  
+ 【UIView分类相关的动画】
+ UIView(UIViewAnimation)
+ UIView(UIViewAnimationWithBlocks)
+ UIView (UIViewKeyframeAnimations)
  
  */
 @interface ViewController ()<CAAnimationDelegate>
